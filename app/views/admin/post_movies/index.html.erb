@@ -1,0 +1,6 @@
+<% @users.post_movies.each do |post_movie| %>
+
+<%= link_to "#{post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S')}", admin_post_movie_path(post_movie.id), class: "text" %>
+<%= post_movie.title %>
+
+<% end %>
