@@ -1,0 +1,34 @@
+<div class="container">
+        <table class="table col-10 mx-auto">
+            <thead class="thead-light">
+                <tr>
+                 <th>ユーザーID</th>
+                 <th>名前</th>
+                 <th>ユーザー名</th>
+                 <th>メールアドレス</th>
+                 <th>会員ステータス</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><u><%= link_to "#{user.name}", admin_user_path(user.id), class: "text" %></u></td>
+                  <td><%= user.user_name %></td>
+                  <td><%= user.email %></td>
+                  <% if user.is_deleted %>
+                　<td><span class="text-muted">退会</span></td>
+                  <% else %>
+                　<td><span class="text-success">有効</span></td>
+                  <% end %>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <div class="container text-align-center">
+    <%= paginate @users %>
+    </div>
