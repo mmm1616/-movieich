@@ -1,0 +1,11 @@
+
+<%= form_with model: @situation, url: admin_situation_path(@situation.id), method: :patch do |f| %>
+シチュエーション
+
+<%= f.text_field :situation_type %>
+
+
+<%= f.submit '変更を保存', class: 'btn btn-success' %>
+
+  
+<% end %>
