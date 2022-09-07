@@ -1,0 +1,9 @@
+ ja:
+  enums:
+    post_movie:
+      site:
+        netflix: "Netflix"
+        amazon: "Amazonプライム・ビデオ"
+        unext: "U-NEXT"
+        hulu: "hulu"
+        dvd: "レンタルビデオ"

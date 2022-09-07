@@ -13,6 +13,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = 'ゲスト'
+      user.kana_name = 'ゲスト'
       user.user_name = 'ゲスト'
       user.introduction = '自己紹介'
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
