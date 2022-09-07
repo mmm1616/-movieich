@@ -1,0 +1,29 @@
+<div class="container">
+<div class="col-12 row">
+
+<div class="col-2 pt-5">
+<%= form_with url: post_movies_path, method: :get do |f| %>
+<%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"}, {class: 'custom-select'} %>
+<%= f.submit '選択' %>
+
+<% end %>
+
+</div>
+
+<div class="row pt-6">
+<% @post_movies.first(9).each do |post_movie| %>
+<div class="col-md-3 flex-column">
+<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id) %>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+
+
+
+<div class="container col-2 mt-5">
+<div class="text-center">
+<%= paginate @post_movies %>
+</div>
+</div>
