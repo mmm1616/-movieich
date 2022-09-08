@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::PasswordsController < Devise::PasswordsController
-   before_action :check_guest, only: [:destroy, :update]
+   before_action :ensure_normal_user, only: [:create]
 
   # GET /resource/password/new
   # def new
@@ -34,11 +34,10 @@ class Public::PasswordsController < Devise::PasswordsController
   #   super(resource_name)
   # end
    
-  def check_guest
-   email = resource&.email || params[:user][:email].downcase
-   if email == 'guest@example.com'
-     redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'
-   end
+  def ensure_normal_user
+    if params[:user][:email].downcase == 'guest@example.com'
+      redirect_to new_user_session_path, alert: 'ゲストユーザーのパスワード再設定はできません。'
+    end
   end
  
  

@@ -4,13 +4,13 @@
 <%= @post_movie.user.name %>
 <%= @post_movie.user.user_name %>
 <%= @post_movie.title %>
-<%= @post_movie.situation_type %>
+<%= @situation.name %>
 <%= @post_movie.story %>
 <%= @post_movie.site %>
 
 <%= @post_movie.review %>
 
-<% @post_movie.post_comments each do |post_comment| %>
+<% @post_comments.each do |post_comment| %>
 <%= post_comment.user.user_name %>
 <%= post_comment.comment %>
 <% end %>

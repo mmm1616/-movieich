@@ -1,5 +1,4 @@
 class Admin::UsersController < ApplicationController
-  before_action :check_guest, only: [:destroy, :update]
 
   def index
     @users = User.page(params[:page]).per(10)
@@ -31,10 +30,4 @@ class Admin::UsersController < ApplicationController
     params.require(:user).permit(:name, :kana_name, :user_name,:introduction,:is_deleted)
   end
   
-  def check_guest
-   email = resource&.email || params[:user][:email].downcase
-   if email == 'guest@example.com'
-     redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'
-   end
-  end
 end

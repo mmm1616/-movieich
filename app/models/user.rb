@@ -17,7 +17,6 @@ class User < ApplicationRecord
       user.name = 'ゲスト'
       user.kana_name = 'ゲスト'
       user.user_name = 'ゲスト'
-      user.introduction = '自己紹介'
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
