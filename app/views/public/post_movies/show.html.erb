@@ -1,5 +1,5 @@
 <h2><%= @post_movie.title %></h2>
-<%= @post_movie.situation.name %>
+<%= @situation.name %>
 <%= @post_movie.story %>
 <%= @post_movie.site %>
 
@@ -8,18 +8,16 @@
 
 <%= link_to "編集する", edit_post_movie_path(@post_movie.id) %>
 
-<div id = "favorite_<%= @post_movie.id %>">
-  <%= render partial: "favorites/favorite", locals: { post_movie: @post_movie } %>
-</div>
+<!--<div id = "favorite_< @post_movie.id %>">-->
+<!--  < render partial: "favorites/favorite", locals: { post_movie: @post_movie } %>-->
+<!--</div>-->
 
 <% @post_movie.post_comments.each do |post_comment| %>
-<%= post_comment.user_name %>
+<%= post_comment.user.user_name %>
 <%= post_comment.comment %>
-<%= link_to "削除", post_comment_path(post_comment.id), method: :delete %>
 <% end %>
 
-<%= form_with model: @post_comment, url: post_comments_path, method: :post do |f| %>
-<%= f.hidden_field :user_name, :value => @user.user_name %>
+<%= form_with model:  [@post_movie, @post_comment] do |f| %>
 <%= f.label :comment, "コメント" %>
 <%= f.text_field :comment %>
 <%= f.submit 'コメントする', class: 'btn btn-success' %>

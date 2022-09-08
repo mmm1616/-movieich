@@ -19,8 +19,9 @@ class Public::PostMoviesController < ApplicationController
    end
    
    def show
-    @post_movies = PostMovie.find(params[:id])
-    @post_comments = post_movie.post_comments.all
+    @post_movie = PostMovie.find(params[:id])
+    @situation = Situation.find(params[:id])
+    @post_comment = PostComment.new
     @user = current_user
    end
    

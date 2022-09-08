@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   scope module: 'public' do
    root to: "post_movies#index"
    resources :post_movies do
-       resource :favorites, only: [:create, :destroy]
+       resources :post_comments, only: [:create]
+       resources :favorites, only: [:create, :destroy]
    end
   end
   
@@ -31,10 +32,6 @@ Rails.application.routes.draw do
     patch '/users/information', to: "users#update"
     get '/users/unsubscribe', to: "users#unsubscribe"
     patch '/users/withdraw', to: "users#withdraw"
-  end
-  
-  scope module: 'public' do
-   resources :post_comments, only: [:create, :destroy]
   end
   
   scope module: 'public' do
