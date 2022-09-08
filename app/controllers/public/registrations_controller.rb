@@ -39,7 +39,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  #protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -60,11 +60,5 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  def check_guest
-   email = resource&.email || params[:user][:email].downcase
-   if email == 'guest@example.com'
-     redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'
-   end
-  end
-end
+ 
 end

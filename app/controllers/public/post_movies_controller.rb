@@ -1,5 +1,10 @@
 class Public::PostMoviesController < ApplicationController
-    def index
+   def new
+      @post_movie = PostMovie.new
+      @situation = Situation.all
+   end
+    
+   def index
    
     @post_movies = PostMovie.all
 
@@ -20,14 +25,16 @@ class Public::PostMoviesController < ApplicationController
    end
    
    def create
-    @situations = Situation.all
     @post_movie = PostMovie.new(post_movie_params)
+    @post_movie.user_id = current_user.id
     @post_movie.save
     redirect_to post_movie_path(@post_movie.id)
    end
    
+   private
+   
    def post_movie_params
-      params.require(:post_movie).permit(:title, :story, :review, :star, :site)
+      params.require(:post_movie).permit(:title, :story, :review, :site, :situation_id)
    end
    
 end

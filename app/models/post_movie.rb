@@ -1,6 +1,6 @@
 class PostMovie < ApplicationRecord
     belongs_to :user
-    belongs_to :situation
+    has_many :situations
     has_many :post_comments
     has_many :favorites, dependent: :destroy
 

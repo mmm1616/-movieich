@@ -62,16 +62,19 @@ ActiveRecord::Schema.define(version: 2022_09_07_100100) do
   end
 
   create_table "post_comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_movies", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "situation_id", null: false
     t.string "title", null: false
     t.text "story", null: false
     t.text "review", null: false
-    t.string "star", null: false
     t.integer "site", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,7 +100,6 @@ ActiveRecord::Schema.define(version: 2022_09_07_100100) do
     t.string "name", null: false
     t.string "kana_name", null: false
     t.string "user_name", null: false
-    t.string "introduction", null: false
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
