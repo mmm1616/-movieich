@@ -14,7 +14,11 @@
                 <% @users.each do |user| %>
                 <tr>
                   <td><%= user.id %></td>
+                  <% if user.email == 'guest@example.com' %>
+                  <td><%= user.name %></td>
+                  <% else %>
                   <td><u><%= link_to "#{user.name}", admin_user_path(user.id), class: "text" %></u></td>
+                  <% end %>
                   <td><%= user.user_name %></td>
                   <td><%= user.email %></td>
                   <% if user.is_deleted %>

@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
-  before_action :ensure_normal_user, only: [:destroy, :update]
+  before_action :check_guest, only: [:destroy, :update]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
- def ensure_normal_user
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。'
-    end
- end
 
   # GET /resource/sign_up
   # def new
@@ -44,7 +39,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -65,4 +60,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  def check_guest
+   email = resource&.email || params[:user][:email].downcase
+   if email == 'guest@example.com'
+     redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'
+   end
+  end
+end
 end

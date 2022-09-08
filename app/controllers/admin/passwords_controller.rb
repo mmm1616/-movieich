@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Admin::PasswordsController < Devise::PasswordsController
+  before_action :check_guest, only: [:destroy, :update]
+
   # GET /resource/password/new
   # def new
   #   super
@@ -31,4 +33,6 @@ class Admin::PasswordsController < Devise::PasswordsController
   # def after_sending_reset_password_instructions_path_for(resource_name)
   #   super(resource_name)
   # end
+  
+  
 end
