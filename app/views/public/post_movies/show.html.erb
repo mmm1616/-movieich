@@ -1,3 +1,4 @@
+<h1>映画詳細</h1>
 <h2><%= @post_movie.title %></h2>
 <%= @situation.name %>
 <%= @post_movie.story %>
@@ -12,11 +13,13 @@
 <!--  < render partial: "favorites/favorite", locals: { post_movie: @post_movie } %>-->
 <!--</div>-->
 
+<h2>コメント</h2>
 <% @post_movie.post_comments.each do |post_comment| %>
 <%= post_comment.user.user_name %>
 <%= post_comment.comment %>
 <% end %>
 
+<h2>コメント作成</h2>
 <%= form_with model:  [@post_movie, @post_comment] do |f| %>
 <%= f.label :comment, "コメント" %>
 <%= f.text_field :comment %>

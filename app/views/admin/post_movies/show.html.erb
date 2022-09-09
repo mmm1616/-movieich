@@ -1,4 +1,4 @@
-投稿内容詳細
+<h2>投稿内容詳細</h2>
 <%= @post_movie.user.id %>
 <%= @post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
 <%= @post_movie.user.name %>
@@ -8,8 +8,10 @@
 <%= @post_movie.story %>
 <%= @post_movie.site %>
 
+<h2>レビュー</h2>
 <%= @post_movie.review %>
 
+<h2>コメント</h2>
 <% @post_comments.each do |post_comment| %>
 <%= post_comment.user.user_name %>
 <%= post_comment.comment %>

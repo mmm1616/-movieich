@@ -1,0 +1,20 @@
+<h2>投稿内容編集</h2>
+<%= form_with model: @post_movie, url: post_movie_path(@post_movie.id), method: :patch do |f| %>
+
+<%= f.label :title, "映画タイトル" %>
+<%= f.text_field :title %>
+
+<%= f.label :situation_id, "シチュエーション" %>
+<%= f.collection_select :situation_id, Situation.all, :id, :name, :prompt => "-- 選択して下さい --" %>
+
+<%= f.label :story, "あらすじ" %>
+<%= f.text_area :story %>
+
+<%= f.label :site, "どこで見つかる？" %>
+<%= f.select :site, PostMovie.sites_i18n.keys.map{|k| [I18n.t("enums.post_movie.site.#{k}"), k]} %>
+
+<%= f.label :review, "レビュー" %>
+<%= f.text_area :review %>
+
+<%= f.submit '編集する', class: 'btn btn-success' %>
+<% end %>
