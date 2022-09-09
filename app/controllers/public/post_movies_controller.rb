@@ -1,4 +1,5 @@
 class Public::PostMoviesController < ApplicationController
+
    def new
         @post_movie = PostMovie.new
         @situation = Situation.all
@@ -20,7 +21,6 @@ class Public::PostMoviesController < ApplicationController
    
    def show
         @post_movie = PostMovie.find(params[:id])
-        # @situations = @post_movie.situations
         @post_comment = PostComment.new
         @user = current_user
    end

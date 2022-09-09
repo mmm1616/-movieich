@@ -10,7 +10,7 @@
 <%= link_to "編集する", edit_post_movie_path(@post_movie.id) %>
 
 <div id="favorite_buttons_<%= @post_movie.id %>">
-<%= render partial: 'public/favorites/favorite', post_movie: @post_movie %>
+<%= render 'public/favorites/favorite', post_movie: @post_movie %>
 </div>
 
 <h2>コメント</h2>

@@ -1,1 +1,1 @@
-$('#favorite_buttons_<%= @post_movie.id %>').html("<%= j(render "favorites/favorite", post_movie: @post_movie) %>");
+$('#favorite_buttons_<%= @post_movie.id %>').html("<%= j(render partial: "public/favorites/favorite", local: {post_movie: @post_movie}) %>");
