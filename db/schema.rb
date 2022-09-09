@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 2022_09_07_100100) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "post_movie_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_favorites_on_post_id"
+    t.index ["post_movie_id"], name: "index_favorites_on_post_movie_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -109,6 +109,6 @@ ActiveRecord::Schema.define(version: 2022_09_07_100100) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "favorites", "posts"
+  add_foreign_key "favorites", "post_movies"
   add_foreign_key "favorites", "users"
 end

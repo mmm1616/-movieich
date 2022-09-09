@@ -20,7 +20,7 @@ class Public::PostMoviesController < ApplicationController
    
    def show
         @post_movie = PostMovie.find(params[:id])
-        @situation = Situation.find(params[:id])
+        # @situations = @post_movie.situations
         @post_comment = PostComment.new
         @user = current_user
    end
@@ -51,6 +51,10 @@ class Public::PostMoviesController < ApplicationController
    
    def post_movie_params
       params.require(:post_movie).permit(:title, :story, :review, :site, :situation_id)
+   end
+   
+   def situation_params
+      params.require(:situation).permit(:situation_id, :name)
    end
    
 end

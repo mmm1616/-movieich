@@ -1,6 +1,6 @@
 <h1>映画詳細</h1>
 <h2><%= @post_movie.title %></h2>
-<%= @situation.name %>
+<%= @post_movie.situation.name %>
 <%= @post_movie.story %>
 <%= @post_movie.site %>
 
@@ -9,9 +9,9 @@
 
 <%= link_to "編集する", edit_post_movie_path(@post_movie.id) %>
 
-<!--<div id = "favorite_< @post_movie.id %>">-->
-<!--  < render partial: "favorites/favorite", locals: { post_movie: @post_movie } %>-->
-<!--</div>-->
+<div id="favorite_buttons_<%= @post_movie.id %>">
+<%= render partial: 'public/favorites/favorite', post_movie: @post_movie %>
+</div>
 
 <h2>コメント</h2>
 <% @post_movie.post_comments.each do |post_comment| %>

@@ -1,11 +1,12 @@
+<div>
 <%= form_with model: @situation, url: admin_situations_path, method: :post do |f| %>
 <%= f.label :name, "シチュエーション" %>
 <%= f.text_field :name %>
 <%= f.submit '追加する', class: 'btn btn-success' %>
 <% end %>
+</div>
 
-
-
+<div>
 <table>
  <thead>
    <tr>
@@ -22,4 +23,4 @@
 </tbody>    
 <% end %>
 </table>
- 
+ </div>
