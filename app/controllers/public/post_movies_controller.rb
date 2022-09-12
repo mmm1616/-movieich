@@ -6,7 +6,6 @@ class Public::PostMoviesController < ApplicationController
    end
     
    def index
-   
         @post_movies = PostMovie.all
 
     if params[:situation_id] == nil
@@ -22,7 +21,7 @@ class Public::PostMoviesController < ApplicationController
    def show
         @post_movie = PostMovie.find(params[:id])
         @post_comment = PostComment.new
-        @user = current_user
+        @user = User.find(params[:id])
    end
    
     def edit

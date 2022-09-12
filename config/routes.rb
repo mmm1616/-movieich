@@ -27,18 +27,18 @@ Rails.application.routes.draw do
   end
   
   scope module: 'public' do
-    get '/users/mypage', to: "users#show"
-    get '/users/information/edit', to: "users#edit"
-    patch '/users/information', to: "users#update"
-    get '/users/unsubscribe', to: "users#unsubscribe"
-    patch '/users/withdraw', to: "users#withdraw"
-  end
-  
-  scope module: 'public' do
-   get '/relationships/following', to: "relationships#following"
-   get '/relationships/follower', to: "relationships#follower"
-   resources :relationships, only: [:create, :destroy]
-  end
+     resources :users, except: [:new, :index, :create, :destroy] do
+       
+     get 'unsubscribe', to: "users#unsubscribe"
+     patch 'withdraw', to: "users#withdraw"
+     
+     get 'followings', on: :member
+     get 'followers', on: :member
+     resource :relationships, only: [:create, :destroy]
+     
+    end
+  end   
+
   
   namespace :admin do
    root  "homes#top"

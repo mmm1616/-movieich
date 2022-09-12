@@ -4,6 +4,12 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   
+  has_many :relationships, foreign_key: :following_id, dependent: :destroy
+  has_many :followings, through: :relationships, source: :follower
+  
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: :follower_id, dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :following
+  
   has_one_attached :profile_image
   
   # Include default devise modules. Others available are:
@@ -20,5 +26,10 @@ class User < ApplicationRecord
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
+  end
+
+  def is_followed_by?(user)#引数(user)にフォローされているか否か
+     reverse_of_relationships.find_by(following_id: :user_id).present?
+     #following_idがuser.idに存在していればtrue
   end
 end
