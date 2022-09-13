@@ -52,7 +52,7 @@ class Public::UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :kana_name, :user_name, :email, :is_deleted)
+    params.require(:user).permit(:profile_image, :name, :kana_name, :user_name, :email, :is_deleted)
   end
  
 end
