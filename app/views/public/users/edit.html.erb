@@ -1,0 +1,28 @@
+<div class="container">
+<div class="col-9 mt-5">
+    
+<%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
+
+<%= f.label :name, "名前" %>
+<%= f.text_field :name, class:"form-control" %>
+
+<%= f.label :kana_name, "ふりがな" %>
+<%= f.text_field :kana_name, class:"form-control" %>
+
+<%= f.label :user_name, "ユーザー名" %>
+<%= f.text_field :user_name, class:"form-control" %>
+
+<%= f.label :email, "メールアドレス" %>
+<%= f.text_field :email, class:"form-control" %>
+
+<%= f.submit '編集する',class:"btn btn-success" %>
+
+<%= link_to "退会する", user_unsubscribe_path(@user), class:"btn btn-danger" %>
+
+<% end %>
+
+
+<%= @user.name %>
+<%= @user.kana_name %>
+<%= @user.user_name %>
+<%= @user.email %>
