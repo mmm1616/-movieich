@@ -26,6 +26,18 @@ class Public::UsersController < ApplicationController
         flash[:notice] = "必要項目を入力してください。"
     end
   end
+  
+  def unsubscribe
+      @user = current_user
+  end
+
+  def withdraw
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+    flash[:notice]="ご利用いただき、ありがとうございました。"
+  end
     
   def followings
       user = User.find(params[:id])
