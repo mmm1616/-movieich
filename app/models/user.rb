@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def is_followed_by?(user)#引数(user)にフォローされているか否か
-     reverse_of_relationships.find_by(following_id: :user_id).present?
+     reverse_of_relationships.find_by(following_id: user.id).present?
      #following_idがuser.idに存在していればtrue
   end
 end

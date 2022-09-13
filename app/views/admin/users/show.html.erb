@@ -1,30 +1,47 @@
-会員ID
+<div class="container">
+<div class="field row justify-content-center mt-3 mb-3">
+<h2>会員情報</h2>
+</div>
 
-<%= @user.id %>
+<div class="container">
+<div class="field row justify-content-center mt-3">
+<div class="col-6 ml-3">
+<table class="table table-bordered">
+    <tr>
+        <td>会員ID</td>
+        <td scope="col" style="width: 70%"><%= @user.id %></td>
+    </tr>
+    <tr>
+        <td>名前</td>
+        <td scope="col" style="width: 70%"><%= @user.name %></td>
+    </tr>
+    <tr>
+        <td>ふりがな</td>
+        <td scope="col" style="width: 70%"><%= @user.kana_name %></td>
+    </tr>
+    <tr>
+        <td>ユーザー名</td>
+        <td scope="col" style="width: 70%"><%= @user.user_name %></td>
+    </tr>
+    <tr>
+        <td>メールアドレス</td>
+        <td scope="col" style="width: 70%"><%= @user.email %></td>
+    </tr>
+    <tr>
+        <td>会員ステータス</td>
+        <td scope="col" style="width: 70%">
+        <% if @user.is_deleted %>
+        退会
+        <% else %>
+        有効
+        <% end %></td>
+    </tr>
+</table>
+</div>
+</div>
 
-
-名前
-<%= @user.name %>
-
-ふりがな
-<%= @user.kana_name %>
-
-ユーザー名
-<%= @user.user_name %>
-
-メールアドレス
-<%= @user.email %>
-
-
-会員ステータス
-<% if @user.is_deleted %>
-退会
-<% else %>
-有効
-<% end %>
-
-
+<div class="field row justify-content-center">
 <%= link_to "編集する", edit_admin_user_path(@user.id), class:"btn btn-success mr-3" %>
-<%= link_to "注文履歴一覧を見る", admin_root_path, class:"btn btn-primary" %>
-
+<%= link_to "投稿履歴一覧を見る", admin_post_movies_path(user_id: @user.id), class:"btn btn-primary" %>
+</div>
 </div>

@@ -1,6 +1,6 @@
 class Admin::PostMoviesController < ApplicationController
     def index
-        @post_movies = PostMovie.all
+        @user = User.find(params[:user_id])
     end
     
     def show
@@ -10,14 +10,14 @@ class Admin::PostMoviesController < ApplicationController
     end
     
     def destroy
-    @post_movie = PostMovie.find(params[:id]) 
-    @post_movie.destroy
-    redirect_to admin_post_movies_path
+        @post_movie = PostMovie.find(params[:id]) 
+        @post_movie.destroy
+        redirect_to admin_post_movies_path
     end
     
     private
   
     def post_movie_params
-      params.require(:post_movie).permit(:title, :story, :review, :site)
+      params.require(:post_movie).permit(:title, :story, :review, :site, :user_id)
     end
 end

@@ -1,6 +1,22 @@
-<% @post_movies.each do |post_movie| %>
+<div class="container">
+<div class="field row justify-content-center mt-3">
+<h2><%= @user.name %>さんの投稿一覧</h2>
+</div>
 
-<%= link_to "#{post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S')}", admin_post_movie_path(post_movie.id), class: "text" %>
-<%= post_movie.title %>
-
-<% end %>
+ <table class="table col-10 mx-auto mt-4">
+  <thead>
+        <tr>
+            <th style="width:25%">投稿日時</th>
+            <th style="width:25%">映画タイトル</th></th>
+        </tr>
+  </thead>
+  <tbody>
+　<% @user.post_movies.each do |post_movie| %>
+        <tr>
+            <td><%= link_to "#{post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S')}", admin_post_movie_path(post_movie.id), class: "text" %></td>
+            <td><%= post_movie.title %></td>
+        </tr>
+  </tbody>
+    <% end %>
+ </table>
+</div>
