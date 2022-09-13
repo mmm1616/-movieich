@@ -1,18 +1,62 @@
+<div class="container">
+<div class="field row justify-content-center mt-3 mb-3">
 <h2>投稿内容詳細</h2>
-<%= @post_movie.user.id %>
-<%= @post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-<%= @post_movie.user.name %>
-<%= @post_movie.user.user_name %>
-<%= @post_movie.title %>
-<%= @post_movie.situation.name %>
-<%= @post_movie.story %>
-<%= @post_movie.site %>
+</div>
 
-<h2>レビュー</h2>
-<%= @post_movie.review %>
+<div class="container">
+<div class="field row justify-content-center">
+<div class="col-6 ml-3">
+<table class="table table-bordered">
+    <tr>
+        <td>会員ID</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.user.id %></td>
+    </tr>
+    <tr>
+        <td>投稿日時</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    </tr>
+    <tr>
+        <td>名前</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.user.name %></td>
+    </tr>
+    <tr>
+        <td>ユーザー名</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.user.user_name %></td>
+    </tr>
+    <tr>
+        <td>タイトル</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.title %></td>
+    </tr>
+    <tr>
+        <td>シチュエーション</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.situation.name %></td>
+    </tr>
+    <tr>
+        <td>ストーリー</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.story %></td>
+    </tr>
+    <tr>
+        <td>どこで見つかる</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.site %></td>
+    </tr>
+    
+</table>
+</div>
 
-<h2>コメント</h2>
+<div class="col-md-4">
+<div class="row">
+<i class="fa-regular fa-star h2"></i><p class="h2">レビュー</p>
+</div>
+<p><%= @post_movie.review %></p>
+</div>
+</div>
+
+<div class="row">
+<i class="fa-regular fa-comment h2"></i><p class="h2">コメント</p>
+</div>
+<div class="overflow-auto">
 <% @post_comments.each do |post_comment| %>
-<%= post_comment.user.user_name %>
-<%= post_comment.comment %>
+<h4><strong>・<%= post_comment.user.user_name %></h4></strong>
+<p class="pl-4"><%= post_comment.comment %></p>
 <% end %>
+</div>
