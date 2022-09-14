@@ -1,14 +1,29 @@
+<div class="container">
 <%= link_to "#{@user.user_name}", user_path(@user.id) %>さんのおすすめ
-<h1>映画詳細</h1>
+
+
 <h2><%= @post_movie.title %></h2>
-<%= @post_movie.situation.name %>
-<%= @post_movie.story %>
-<%= @post_movie.site %>
+<table class="table table-bordered">
+    <tr>
+        <td class="text-center">シチュエーション</td>
+        <td class="text-center"><%= @post_movie.situation.name %></td>
+    </tr>
+    <tr>
+        <td class="text-center">あらすじ</td>
+        <td class="text-center"><%= @post_movie.story %></td>
+    </tr>
+    <tr>
+        <td class="text-center">どこで見つかる</td>
+        <td class="text-center"><%= @post_movie.site %></td>
+    </tr>
+</table>
 
 <h2>レビュー</h2>
 <%= @post_movie.review %>
 
+<% if @user == current_user %>
 <%= link_to "編集する", edit_post_movie_path(@post_movie.id) %>
+<% end %>
 
 <div id="favorite_buttons_<%= @post_movie.id %>">
 <%= render 'public/favorites/favorite', post_movie: @post_movie %>
