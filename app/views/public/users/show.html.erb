@@ -1,12 +1,22 @@
+<div class="container">
+<div class="field row justify-content-center mt-3">
 <% if @user.profile_image.attached? %>
 <%= image_tag @user.profile_image, size: "80x80" %>
 <% else %>
 <%= image_tag 'no_image', size: "80x80" %>
 <% end %>
+</div>
+
+<div class="field row justify-content-center">
 <h2><%= @user.user_name %></h2>
+</div>
+
+<div class="field row justify-content-center">
 <%= link_to @user.followings.count, followings_user_path(@user) %>フォロー
 <%= link_to @user.followers.count, followers_user_path(@user) %>フォロワー
+</div>
 
+<div class="field row justify-content-center mt-2">
 <% if @user == current_user %>
     <%= link_to edit_user_path(@user) do %>
         <button class ="btn btn-success">マイプロフィール</button>
@@ -22,7 +32,13 @@
         <% end %>
     <% end %>
 <% end %>
+</div>
 
+
+<div class="d-flex flex-wrap mt-3">
 <% @user.post_movies.each do |post_movie| %>
-<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id)  %>
+<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "btn btn-outline-dark"  %>
 <% end %>
+</div>
+
+</div>
