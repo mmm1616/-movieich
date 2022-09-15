@@ -1,12 +1,13 @@
 
 <div class="container">
+<div class="col-md-12">
 <div class="field row justify-content-center mt-3 ml-5">
-<div class="col-12 col-xs-12 col-md-6">
 <%= form_with url: post_movies_path, method: :get do |f| %>
 <%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"}, {class: 'form-select'} %>
 <%= f.submit '選択', class: "btn btn-outline-info ml-3" %>
 <% end %>
 </div>
+<p class="text-center mt-2 mb-2">※詳細をみる際は、ログインor新規登録が必要です。</p>
 </div>
 </div>
 
@@ -19,7 +20,7 @@
 </div>
 </div>
 
-<div class="container col-2 mt-5">
+<div class="container col-md-2 mt-5">
 <div class="text-center">
 <%= paginate @post_movies %>
 </div>

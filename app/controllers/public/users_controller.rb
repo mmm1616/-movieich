@@ -1,14 +1,10 @@
 class Public::UsersController < ApplicationController
    before_action :authenticate_user!
-  # def index
-  #     @post_movies = PostMovie.all
-  #     @user = User.where(params[:user_id])
-  #     @users = User.where.not(user_id: current_user.id)
-  #     #idがcurrent_user以外のidを全て取ってくる  
-  # end
+   before_action :ensure_normal_user, only: [:update]
   
   def show
       @user = User.find(params[:id])
+      @guest_user = User.find_by(email: 'guest@example.com')
   end
   
   def edit
@@ -54,5 +50,12 @@ class Public::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:profile_image, :name, :kana_name, :user_name, :email, :is_deleted)
   end
- 
+  
+  def ensure_normal_user
+    if params[:user][:email] == 'guest@example.com'
+       redirect_to root_path
+       flash[:notice]="ゲストユーザーは更新・削除できません。"
+    end
+  end
+  
 end
