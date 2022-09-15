@@ -1,82 +1,52 @@
 <div class="container">
-<div class="col-3 mt-5 mb-5 secondary text-center">
-<h2>新規会員登録</h2>
-</div>
-</div>
+<div class="col-md-12">
+<h2 class="mt-5 text-center">ログイン</h2>
 
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
   
-<div class="container col-9">
-  
-  <div class="form-group row">
-  <div class="col-2 col-form-label">
-  <%= f.label :name, "名前" %>
-  </div>
-  <div class="col-3">
-  <%= f.text_field :name, autofocus: true, required: true, class: 'form-control' %>
-  </div>
+  <div class="field row justify-content-center py-3">
+    <%= f.label :name, "名前", class: "col-md-3" %>
+    <%= f.text_field :name, class: "col-md-3 form-control", autofocus: true, required: true %>
   </div>
   
-  <div class="form-group row">
-  <div class="col-2 col-form-label">
-  <%= f.label :kana_name, "ふりがな" %>
-  </div>
-  <div class="col-3">
-  <%= f.text_field :kana_name, autofocus: true, required: true, class: 'form-control' %>
-  </div>
+  <div class="field row justify-content-center py-3">
+    <%= f.label :kana_name, "ふりがな", class: "col-md-3" %>
+    <%= f.text_field :kana_name, class: "col-md-3 form-control", autofocus: true, required: true %>
   </div>
   
-  <div class="form-group row">
-  <div class="col-2 col-form-label">
-  <%= f.label :user_name, "ユーザー名" %>
-  </div>
-  <div class="col-3">
-  <%= f.text_field :user_name, autofocus: true, required: true, class: 'form-control' %>
-  </div>
+  <div class="field row justify-content-center py-3">
+    <%= f.label :user_name, "ユーザー名", class: "col-md-3" %>
+    <%= f.text_field :user_name, class: "col-md-3 form-control",autofocus: true, required: true %>
   </div>
   
-  <div class="form-group row">
-  <%= f.label :email, "メールアドレス", class: 'col-3 col-form-label' %>
-  <div class="col-3">
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-  </div>
+  <div class="field row justify-content-center py-3">
+    <%= f.label :email, "メールアドレス", class: 'col-md-3' %>
+    <%= f.email_field :email, class: "col-md-3 form-control", autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="form-group row">
-    <%= f.label :password, "パスワード(6文字以上)", class: 'col-3 col-form-label' %>
+  <div class="field row justify-content-center py-3">
+    <%= f.label :password, "パスワード(6文字以上)", class: 'col-md-3' %>
     <% if @minimum_password_length %>
     <% end %>
-  <div class="col-3">
-    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    <%= f.password_field :password, class: "col-md-3 form-control", autocomplete: "new-password" %>
   </div>
+ 
+
+  <div class="field row justify-content-center py-3">
+    <%= f.label :password_confirmation, "パスワード(確認用)", class: 'col-md-3' %>
+    <%= f.password_field :password_confirmation, class: "col-md-3 form-control", autocomplete: "new-password" %>
   </div>
 
-  <div class="from-group row">
-    <%= f.label :password_confirmation, "パスワード(確認用)", class: 'col-3 col-form-label' %>
-  <div class="col-3">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  <div class="actions row justify-content-center py-3">
+    <%= f.submit "新規登録", class: "btn btn-outline-dark mt-3" %>
   </div>
+  
+  <% end %>
   </div>
+  
+  <%= render "public/shared/links" %>
 
-  <div class="actions row pt-3">
-  <div class="col-3 col-form-label"></div>
-  <div class="col-auto">
-    <%= f.submit "新規登録", class:"btn btn-success" %>
-  </div>
-<% end %>
-</div>
-
-</div>
-
-<div class="container">
-<div class="col-4 mt-5 mb-5 secondary text-center">
-<h2>既に登録済みの方</h2>
 </div>
 </div>
 
-<div class="container col-7 pb-5">
-<%= link_to "こちら", new_user_session_path %>　からログインしてください。
-</div>
-
-<%= render "public/shared/links" %>
