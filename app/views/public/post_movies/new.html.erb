@@ -1,20 +1,47 @@
+
 <%= form_with model: @post_movie, url: post_movies_path, method: :post do |f| %>
 
-<%= f.label :title, "映画タイトル" %>
-<%= f.text_field :title %>
+<div class="container">
+<div class="col-10 mx-auto mt-5">
 
-<%= f.label :situation_id, "シチュエーション" %>
+<div class="form-group row">
+<%= f.label :title, "映画タイトル", class: "col-3 col-form-label" %>
+<div class="col-9 pt-1">
+<%= f.text_field :title, class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group row">
+<%= f.label :situation_id, "シチュエーション", class: "col-3 col-form-label" %>
+<div class="col-9 pt-1">
 <%= f.collection_select :situation_id, Situation.all, :id, :name, :prompt => "-- 選択して下さい --" %>
+</div>
+</div>
 
-<%= f.label :story, "あらすじ" %>
-<%= f.text_area :story %>
+<div class="form-group row">
+<%= f.label :story, "あらすじ", class: "col-3 col-form-label" %>
+<div class="col-9 pt-1">
+<%= f.text_area :story, class: "form-control" %>
+</div>
+</div>
 
-<%= f.label :site, "どこで見つかる？" %>
+<div class="form-group row">
+<%= f.label :site, "どこで見つかる？", class: "col-3 col-form-label" %>
+<div class="col-9 pt-1">
 <%= f.select :site, PostMovie.sites_i18n.keys.map{|k| [I18n.t("enums.post_movie.site.#{k}"), k]} %>
+</div>
+</div>
 
-<%= f.label :review, "レビュー" %>
-<%= f.text_area :review %>
+<div class="form-group row">
+<%= f.label :review, "レビュー", class: "col-3 col-form-label" %>
+<div class="col-9 pt-1">
+<%= f.text_area :review, class: "form-control" %>
+</div>
+</div>
 
-<%= f.submit '投稿する', class: 'btn btn-success' %>
-
+<div class="text-center mt-3">
+<%= f.submit '投稿する', class: "btn btn-outline-dark" %>
+</div>
 <% end %>
+
+</div>

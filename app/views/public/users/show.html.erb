@@ -1,7 +1,7 @@
 <div class="container">
 <div class="field row justify-content-center mt-3">
 <% if @user.profile_image.attached? %>
-<%= image_tag @user.profile_image, size: "80x80" %>
+<%= image_tag @user.profile_image, size: "100x100", class: "rounded-circle" %>
 <% else %>
 <%= image_tag 'no_image', size: "80x80" %>
 <% end %>
