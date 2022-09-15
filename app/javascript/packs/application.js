@@ -11,6 +11,7 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application" 
+import '../stylesheets/post_movies.css'
 
 Rails.start()
 Turbolinks.start()

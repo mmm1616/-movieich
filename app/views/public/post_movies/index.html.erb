@@ -8,10 +8,12 @@
 <% end %>
 </div>
 </div>
+</div>
 
-<div class="d-flex flex-wrap align-items-center mt-3">
+<div class="container">
+<div class="d-flex flex-wrap mt-3">
 <% @post_movies.first(9).each do |post_movie| %>
-<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "border border-secondary rounded-pill p-3 text-dark text-wrap mr-3 mb-3" %>
+<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "col text-center border border-secondary rounded-pill p-3 text-dark text-wrap mb-3" %>
 <% end %>
 </div>
 </div>
@@ -21,4 +23,6 @@
 <div class="text-center">
 <%= paginate @post_movies %>
 </div>
+</div>
+
 </div>

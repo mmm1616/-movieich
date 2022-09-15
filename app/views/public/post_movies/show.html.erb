@@ -1,8 +1,18 @@
 <div class="container">
-<%= link_to "#{@user.user_name}", user_path(@user.id) %>さんのおすすめ
+<div class="box14">
+<p><%= link_to "#{@user.user_name}", user_path(@user.id) %>さんのおすすめ</p>
+</div>
 
+<h2 class="text-center mb-2">『<%= @post_movie.title %>』</h2>
 
-<h2><%= @post_movie.title %></h2>
+<div class="container">
+<div class="text-right mb-2">
+<% if @user == current_user %>
+<%= link_to "編集する", edit_post_movie_path(@post_movie.id), class: "btn btn-outline-secondary" %>
+<% end %>
+</div>
+</div>
+
 <table class="table table-bordered">
     <tr>
         <td class="text-center">シチュエーション</td>
@@ -18,16 +28,19 @@
     </tr>
 </table>
 
-<h2>レビュー</h2>
-<%= @post_movie.review %>
+<div class="box26">
+<span class="box-title">レビュー</span>
+<p><%= @post_movie.review %></p>
+</div>
 
-<% if @user == current_user %>
-<%= link_to "編集する", edit_post_movie_path(@post_movie.id) %>
-<% end %>
-
+<div class="container">
+<div class="text-right">
 <div id="favorite_buttons_<%= @post_movie.id %>">
 <%= render 'public/favorites/favorite', post_movie: @post_movie %>
 </div>
+</div>
+</div>
+
 
 <h2>コメント</h2>
 <% @post_movie.post_comments.each do |post_comment| %>
