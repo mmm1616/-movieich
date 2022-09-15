@@ -1,34 +1,63 @@
+<div class="container">
+<div class="row">
+<div class="col-md-7">
 
 <%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
 
-<%= f.label :profile_image, "自分の写真" %>
+<%= f.label :profile_image, "プロフィール写真", class: "mt-4" %>
 <%= f.file_field :profile_image, class:"form-control-file", accept: "image/*" %>
 
-<%= f.label :name, "名前" %>
+<%= f.label :name, "名前(氏と名の間に全角スペース)",class: "mt-2" %>
 <%= f.text_field :name, class:"form-control" %>
 
-<%= f.label :kana_name, "ふりがな" %>
+<%= f.label :kana_name, "ふりがな(氏と名の間に全角スペース)", class: "mt-2" %>
 <%= f.text_field :kana_name, class:"form-control" %>
 
-<%= f.label :user_name, "ユーザー名" %>
+<%= f.label :user_name, "ユーザー名", class: "mt-2" %>
 <%= f.text_field :user_name, class:"form-control" %>
 
-<%= f.label :email, "メールアドレス" %>
+<%= f.label :email, "メールアドレス", class: "mt-2" %>
 <%= f.text_field :email, class:"form-control" %>
 
-<%= f.submit '編集する',class:"btn btn-success" %>
+<%= f.submit '編集する',class:"btn btn-outline-dark mt-3" %>
+<% end %>
 
-<%= link_to "退会する", user_unsubscribe_path(@user), class:"btn btn-danger" %>
+</div>
 
+<div class="col-md-5">
+
+<div class="text-center mt-3 mb-3">
 <% if @user.profile_image.attached? %>
-<%= image_tag @user.profile_image, size: "80x80" %>
+<%= image_tag @user.profile_image, size: "80x80", class: "rounded-circle" %>
 <% else %>
-<%= image_tag 'no_image', size: "80x80" %>
+<%= image_tag 'no_image', size: "80x80", class: "rounded-circle" %>
 <% end %>
+</div>
 
-<% end %>
+<table class="table">
+    <tr>
+        <td>名前</td>
+        <td class="pl-2"><%= @user.name %></td>
+    </tr>
+    <tr>
+        <td>ふりがな</td>
+        <td class="pl-2"><%= @user.kana_name %></td>
+    </tr>
+    <tr>
+        <td>ユーザー名</td>
+        <td class="pl-2"><%= @user.user_name %></td>
+    </tr>
+    <tr>
+        <td>メールアドレス</td>
+        <td class="pl-2"><%= @user.email %></td>
+    </tr>
+</table>
+</div>
 
-<%= @user.name %>
-<%= @user.kana_name %>
-<%= @user.user_name %>
-<%= @user.email %>
+</div>
+</div>
+</div>
+
+<div class="container mt-3">
+<%= link_to "退会する", user_unsubscribe_path(@user), class:"btn btn-outline-danger" %>
+</div>
