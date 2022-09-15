@@ -1,31 +1,23 @@
 <div class="container">
-<div class="col-2 mt-5 mb-5 secondary text-center">
-<h2>ログイン</h2>
-</div>
-</div>
-
-<div class="container">
-<div class="col-8">
-<div class="secondary col-4 text-center">
-<p>会員の方はこちらからログイン</p>
-</div>
-</div>
-
+<div class="col-md-12">
+<h2 class="mt-5 text-center">ログイン</h2>
 <%= form_with model: @user, url: user_session_path do |f| %>
    <div class="field row justify-content-center py-3">
-    <%= f.label :email, "メールアドレス", class: 'col-2' %><br />
-    <%= f.email_field :email, class: 'col-5', autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+    <%= f.label :email, "メールアドレス", class: 'col-md-3' %><br />
+    <%= f.email_field :email, class: 'col-md-5', autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
   </div>
 
   <div class="field row justify-content-center py-3">
-    <%= f.label :password, "パスワード", class: 'col-2' %><br />
-    <%= f.password_field :password, class: 'col-5', autocomplete: "current-password" %>
+    <%= f.label :password, "パスワード", class: 'col-md-3' %><br />
+    <%= f.password_field :password, class: 'col-md-5', autocomplete: "current-password" %>
   </div>
 
-    <div class="actions row justify-content-center py-3">
-    <%= f.submit "ログイン", class: 'btn btn-primary' %>
-    </div>
+  <div class="actions row justify-content-center py-3">
+    <%= f.submit "ログイン", class: 'btn btn-outline-dark' %>
+  </div>
 <% end %>
     
 
 <%= render "public/shared/links" %>
+</div>
+</div>
