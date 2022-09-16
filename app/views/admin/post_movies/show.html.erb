@@ -1,11 +1,11 @@
 <div class="container">
+<div class="col-md-12">
 <div class="field row justify-content-center mt-3 mb-3">
 <h2>投稿内容詳細</h2>
 </div>
 
-<div class="container">
-<div class="field row justify-content-center">
-<div class="col-6 ml-3">
+<div class="field row">
+<div class="col-md-6 mt-4">
 <table class="table table-bordered">
     <tr>
         <td>会員ID</td>
@@ -39,24 +39,38 @@
         <td>どこで見つかる</td>
         <td scope="col" style="width: 70%"><%= @post_movie.site_i18n %></td>
     </tr>
+    <tr>
+        <td>いいね数</td>
+        <td scope="col" style="width: 70%"><%= @post_movie.favorites.count %></td>
+    </tr>
     
 </table>
 </div>
 
-<div class="col-md-4">
-<div class="row">
-<i class="fa-regular fa-star h2"></i><p class="h2">レビュー</p>
-</div>
+<div class="col-md-6">
+<div class="box26">
+<span class="box-title">レビュー</span>
 <p><%= @post_movie.review %></p>
 </div>
 </div>
-
-<div class="row">
-<i class="fa-regular fa-comment h2"></i><p class="h2">コメント</p>
 </div>
+
+
+<div class="col-md-12 mt-3">
+<h2>コメント</h2>
 <div class="overflow-auto">
 <% @post_comments.each do |post_comment| %>
-<h4><strong>・<%= post_comment.user.user_name %></h4></strong>
-<p class="pl-4"><%= post_comment.comment %></p>
+<table class="table">
+    <tbody>
+        <tr><td>
+            <h4>・<%= post_comment.user.user_name %></h4>
+            <%= post_comment.comment %>
+        </td></tr>
+    </tbody>
+</table>
 <% end %>
+</div>
+</div>
+
+</div>
 </div>

@@ -5,7 +5,6 @@ class Admin::PostMoviesController < ApplicationController
     
     def show
         @post_movie = PostMovie.find(params[:id])
-        @situation = Situation.find(params[:id])
         @post_comments = @post_movie.post_comments.all
     end
     
