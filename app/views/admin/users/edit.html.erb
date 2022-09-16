@@ -1,32 +1,53 @@
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+
+<div class="col-md-2 mx-auto">
+<table class="table table-bordered text-center mt-3">
+    <tr>
+        <td style="width:50%">会員ID</td>
+        <td><%= @user.id %></td>
+    </tr>
+</table>
+</div>
+
 <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
 
-会員ID
-<%= @user.id %>
+<div class="field row justify-content-center mt-3">
+<%= f.label :name, "名前", class: "col-md-2 form-label ml-2" %>
+<%= f.text_field :name, class:"form-control col-md-4" %>
+</div>
 
+<div class="field row justify-content-center mt-3">
+<%= f.label :kana_name, "ふりがな", class: "col-md-2 form-label ml-2" %>
+<%= f.text_field :kana_name, class:"form-control col-md-4" %>
+</div>
 
-名前
-<%= f.text_field :name, class:"form-control col-6" %>
+<div class="field row justify-content-center mt-3">
+<%= f.label :user_name, "ユーザー名", class: "col-md-2 form-label ml-2" %>
+<%= f.text_field :user_name, class:"form-control col-md-4" %>
+</div>
 
-ふりがな
-<%= f.text_field :kana_name, class:"form-control col-6" %>
+<div class="field row justify-content-center mt-3">
+<%= f.label :email, "メールアドレス", class: "col-md-2 form-label ml-2" %>
+<%= f.text_field :email, class:"form-control col-md-4" %>
+</div>
 
-
-ユーザー名
-<%= f.text_field :user_name, class:"form-control" %>
-
-
-メールアドレス
-<%= f.text_field :email, class:"form-control" %>
-
-
-会員ステータス
+<div class="field row justify-content-center mt-3">
+<%= f.label :is_deleted, "会員ステータス", class: "col-md-2 form-check" %>
+<div class="col-md-2">
 <%= f.radio_button :is_deleted, 'false' %>
 <%= f.label :is_deleted, '有効', value: false %>
+</div>
+<div class="col-md-2">
 <%= f.radio_button :is_deleted, 'true' %>
 <%= f.label :is_deleted, '退会', value: true %>
+</div>
+</div>
 
-
-<%= f.submit '変更内容を保存',class:"btn btn-success" %>
+<div class="field row justify-content-center mt-3">
+<%= f.submit '変更内容を保存',class:"btn btn-outline-success" %>
+</div>
 
 
 <% end %>
