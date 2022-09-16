@@ -1,5 +1,8 @@
-<% @users.each do |user| %>
-<table>
+<div class="container">
+<div class="d-flex justify-content-center">
+    
+
+<table class="table col-md-6">
     <thead>
         <tr>
             <th>ユーザー名</th>
@@ -7,8 +10,9 @@
         </tr>
     </thead>
     <tbody>
+        <% @users.each do |user| %>
         <tr>
-            <td><%= link_to "#{user.name}", user_path(user) %></td>
+            <td><%= link_to "#{user.user_name}", user_path(user), class: "text" %></td>
             <td><% if user != current_user %>
                   <% if user.is_followed_by?(current_user) %>
                     <%= link_to user_relationships_path(user), method: :delete do %>
@@ -22,6 +26,10 @@
                 <% end %>
             </td>
         </tr>
+        <% end %>
     </tbody>
 </table>
-<% end %>
+
+
+</div>
+</div>

@@ -12,8 +12,12 @@
 </div>
 
 <div class="field row justify-content-center">
-<%= link_to @user.followings.count, followings_user_path(@user) %>フォロー
-<%= link_to @user.followers.count, followers_user_path(@user) %>フォロワー
+ <div class="mr-2">
+    <%= link_to @user.followings.count, followings_user_path(@user), class: "text" %>フォロー
+ </div>
+ <div>
+    <%= link_to @user.followers.count, followers_user_path(@user), class: "text" %>フォロワー
+ </div>
 </div>
 
 <div class="field row justify-content-center mt-2">

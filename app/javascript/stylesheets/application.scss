@@ -7,3 +7,12 @@
     font-family: 'Zen Maru Gothic', sans-serif;
 }
 
+.text {
+  color: black;
+  text-decoration: underline;
+}
+
+.text:hover {
+  background-color: #f5deb3;
+  color: black;
+}
