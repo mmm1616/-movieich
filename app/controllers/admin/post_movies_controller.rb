@@ -17,6 +17,6 @@ class Admin::PostMoviesController < ApplicationController
     private
   
     def post_movie_params
-      params.require(:post_movie).permit(:title, :story, :review, :site, :user_id)
+      params.require(:post_movie).permit(:title, :story, :review, :user_id, :site)
     end
 end

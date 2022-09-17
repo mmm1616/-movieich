@@ -1,10 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Zen+Maru+Gothic&display=swap');
 
 * {
     font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.title { 
+  font-family: 'Permanent Marker', cursive;
 }
 
 .text {

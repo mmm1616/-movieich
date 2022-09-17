@@ -4,11 +4,11 @@ class Public::UsersController < ApplicationController
   
   def show
       @user = User.find(params[:id])
-      @guest_user = User.find_by(email: 'guest@example.com')
   end
   
   def edit
       @user = current_user
+      @guest_user = User.find_by(email: 'guest@example.com')
   end
 
   def update

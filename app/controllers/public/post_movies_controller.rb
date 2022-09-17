@@ -51,11 +51,12 @@ class Public::PostMoviesController < ApplicationController
    private
    
    def post_movie_params
-      params.require(:post_movie).permit(:title, :story, :review, :site, :situation_id)
+      params.require(:post_movie).permit(:title, :story, :review, :situation_id, :site)
    end
    
    def situation_params
       params.require(:situation).permit(:situation_id, :name)
    end
+   
    
 end

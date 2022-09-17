@@ -1,6 +1,6 @@
 <div class="container">
 <div class="box14">
-<p><%= link_to "#{@user.user_name}", user_path(@user.id), class: "text" %>さんのおすすめ</p>
+<p><%= link_to "#{@post_movie.user.user_name}", user_path(@post_movie.user.id), class: "text" %>さんのおすすめ</p>
 </div>
 
 <h2 class="text-center mb-2">『<%= @post_movie.title %>』</h2>
