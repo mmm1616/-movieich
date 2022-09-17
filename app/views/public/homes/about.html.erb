@@ -4,10 +4,16 @@
 <p>『シチュエーション×おうち映画』</p>
 <p>「今日はおうち時間を過ごす為に、<br>何か映画を観ようかな」</p>
 
-<p>「何を観よう…」</p>
-<p>「今日の気分は…」</p>
+<div class="d-flex align-items-center justify-content-center">
+<p>「何を観よう…」</p><%= image_tag 'family', size: "150x100" %>
+</div>
 
-<p>テーマで映画を探してみよう</p>
+<div class="d-flex align-items-center justify-content-center">
+<%= image_tag 'thinking4', size: "150x100" %><p>「今日の気分は…」</p>
+</div>
+
+
+<p class="mt-2">テーマで映画を探してみよう</p>
 
 
 <%= link_to "映画を探そう", post_movies_path, class: "mt-2 btn-flat-dashed-filled" %>

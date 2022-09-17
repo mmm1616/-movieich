@@ -8,12 +8,12 @@
    
    <div class="field row justify-content-center py-3">
     <%= f.label :email, "メールアドレス", class: 'col-md-3' %><br />
-    <%= f.email_field :email, class: 'col-md-5', autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+    <%= f.email_field :email, class: 'col-md-5', autofocus: true, required: true, autocomplete: "email", placeholder: "sample@example.com" %>
    </div>
 
   <div class="field row justify-content-center py-3">
     <%= f.label :password, "パスワード", class: 'col-md-3' %><br />
-    <%= f.password_field :password, class: 'col-md-5', autocomplete: "current-password" %>
+    <%= f.password_field :password, class: 'col-md-5', required: true, autocomplete: "current-password" %>
    </div>
 
   <div class="actions row justify-content-center py-3">

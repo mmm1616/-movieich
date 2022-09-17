@@ -7,7 +7,7 @@
 
 <div class="container">
 <div class="text-right mb-2">
-<% if @user == current_user %>
+<% if @post_movie.user == current_user %>
 <%= link_to "編集する", edit_post_movie_path(@post_movie.id), class: "btn btn-outline-secondary" %>
 <% end %>
 </div>
