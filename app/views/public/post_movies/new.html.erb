@@ -1,3 +1,14 @@
+<% if @post_movie.errors.any? %>
+<div class="field_with_errors">
+  <%= @post_movie.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post_movie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 
 <%= form_with model: @post_movie, url: post_movies_path, method: :post do |f| %>
 

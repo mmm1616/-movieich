@@ -51,3 +51,13 @@ ja:
         too_long: "は%{count}文字以下に設定して下さい。"
         invalid: "は有効でありません。"
         confirmation: "が内容とあっていません。"
+  activerecord:
+    attributes:
+      post_movie:
+        title: "映画タイトル"
+        situation_id: "シチュエーション"
+        story: "あらすじ"
+        site: "どこで見つかる？"
+        review: "レビュー"
+      user:
+        email: "メールアドレス"

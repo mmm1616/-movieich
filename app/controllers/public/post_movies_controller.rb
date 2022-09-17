@@ -44,8 +44,11 @@ class Public::PostMoviesController < ApplicationController
    def create
         @post_movie = PostMovie.new(post_movie_params)
         @post_movie.user_id = current_user.id
-        @post_movie.save
-        redirect_to post_movie_path(@post_movie.id)
+        if @post_movie.save
+           redirect_to post_movie_path(@post_movie.id)
+        else
+           render :new
+        end
    end
    
    private
