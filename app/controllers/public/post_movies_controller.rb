@@ -23,7 +23,6 @@ class Public::PostMoviesController < ApplicationController
    def show
         @post_movie = PostMovie.find(params[:id])
         @post_comment = PostComment.new
-        @user = User.find(params[:id])
    end
    
     def edit
@@ -50,6 +49,12 @@ class Public::PostMoviesController < ApplicationController
            render :new
         end
    end
+     
+    def destroy
+        @post_movie = PostMovie.find(params[:id]) 
+        @post_movie.destroy
+        redirect_to user_path(current_user.id)
+    end
    
    private
    

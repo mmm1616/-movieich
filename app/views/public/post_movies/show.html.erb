@@ -6,31 +6,32 @@
 <h2 class="text-center mb-2">『<%= @post_movie.title %>』</h2>
 
 <div class="container">
-<div class="text-right mb-2">
+<div class="text-right mb-2 row">
 <% if @post_movie.user == current_user %>
-<%= link_to "編集する", edit_post_movie_path(@post_movie.id), class: "btn btn-outline-secondary" %>
+<%= link_to "編集する", edit_post_movie_path(@post_movie), class: "btn btn-outline-secondary" %>
+<%= link_to "削除する", post_movie_path(@post_movie), method: :delete, class: "btn btn-outline-danger" %>
 <% end %>
 </div>
 </div>
 
 <table class="table table-bordered">
     <tr>
-        <td class="text-center">シチュエーション</td>
-        <td class="text-center"><%= @post_movie.situation.name %></td>
+        <td class="text-center align-middle" style="width:30%">シチュエーション</td>
+        <td class="align-middle"><%= @post_movie.situation.name %></td>
     </tr>
     <tr>
-        <td class="text-center">あらすじ</td>
-        <td class="text-center"><%= @post_movie.story %></td>
+        <td class="text-center align-middle"  style="width:30%">あらすじ</td>
+        <td class="align-middle"><%= @post_movie.story %></td>
     </tr>
     <tr>
-        <td class="text-center">どこで見つかる</td>
-        <td class="text-center"><%= @post_movie.site_i18n %></td>
+        <td class="text-center align-middle"  style="width:30%">どこで見つかる</td>
+        <td class="align-middle"><%= @post_movie.site_i18n %></td>
     </tr>
 </table>
 
 <div class="box26">
 <span class="box-title">レビュー</span>
-<p><%= @post_movie.review %></p>
+<span class="align-middle"><%= @post_movie.review %></span>
 </div>
 
 <div class="container">
