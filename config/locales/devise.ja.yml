@@ -61,3 +61,5 @@ ja:
         review: "レビュー"
       user:
         email: "メールアドレス"
+        user_name: "ユーザー名"
+        kana_name: "ふりがな"

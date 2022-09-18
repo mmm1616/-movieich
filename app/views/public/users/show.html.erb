@@ -41,7 +41,7 @@
 
 <div class="d-flex flex-wrap mt-3">
 <% @user.post_movies.each do |post_movie| %>
-<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "btn btn-outline-dark"  %>
+<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "btn btn-outline-dark mb-3 mr-2"  %>
 <% end %>
 </div>
 

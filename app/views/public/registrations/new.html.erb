@@ -1,4 +1,13 @@
-
+<% if @user.errors.any? %>
+<div class="field_with_errors">
+  <%= @user.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <div class="container">
 <div class="col-md-12">
@@ -12,7 +21,7 @@
   </div>
   
   <div class="field row justify-content-center py-3">
-    <%= f.label :kana_name, "ふりがな", class: "col-md-3" %>
+    <%= f.label :kana_name, "ふりがな(全角ひらがな)", class: "col-md-3" %>
     <%= f.text_field :kana_name, class: "col-md-3 form-control", autofocus: true, required: true %>
   </div>
   

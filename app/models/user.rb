@@ -15,7 +15,9 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :following
   
   has_one_attached :profile_image
-
+  
+  validates :kana_name, uniqueness: true, format: { with: /\A[ぁ-ん]+/ , message: "は全角ひらがなのみが使用できます" }
+  
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
