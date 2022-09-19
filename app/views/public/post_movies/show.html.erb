@@ -44,24 +44,24 @@
 
 <div class="container">
 <h2>みんなからのコメント</h2>
-<div class="overflow-auto" style="height:100px;">
-<% @post_movie.post_comments.each do |post_comment| %>
-<div class="balloon5">
-<div class="faceicon">
-<% if post_comment.user.profile_image.attached? %>
-<%= image_tag post_comment.user.profile_image, size: "100x100" %>
-<% else %>
-<%= image_tag 'no_image', size: "100x100" %>
-<% end %>
-</div>
-<div class="chatting">
-<div class="says">
-<p class="font-weight-bold"><%= post_comment.user.user_name %> : </p>
-<p><%= post_comment.comment %></p>
-<% end %>
-</div>
-</div>
-</div>
+<div class="overflow-auto" style="height:200px;">
+　<% @post_movie.post_comments.each do |post_comment| %>
+　　　<div class="balloon5">
+　　　<div class="faceicon">
+　　　　<% if post_comment.user.profile_image.attached? %>
+　　　　　<%= image_tag post_comment.user.profile_image, size: "100x100" %>
+　　　　<% else %>
+　　　　　<%= image_tag 'no_image', size: "100x100" %>
+　　　　<% end %>
+　　　</div>
+　　　<div class="chatting">
+　　　<div class="says">
+　　　　<p class="font-weight-bold"><%= post_comment.user.user_name %> : </p>
+　　　　<p><%= post_comment.comment %></p>
+　　　</div>
+　　　</div>
+　　　</div>
+　　　<% end %>
 </div>
 </div>
 
