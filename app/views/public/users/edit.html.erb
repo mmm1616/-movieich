@@ -16,10 +16,10 @@
 <%= f.label :profile_image, "プロフィール写真", class: "mt-4" %>
 <%= f.file_field :profile_image, class:"form-control-file", accept: "image/*" %>
 
-<%= f.label :name, "名前(氏と名の間に全角スペース)",class: "mt-2" %>
+<%= f.label :name, "名前",class: "mt-2" %>
 <%= f.text_field :name, class:"form-control" %>
 
-<%= f.label :kana_name, "ふりがな(氏と名の間に全角スペース)", class: "mt-2" %>
+<%= f.label :kana_name, "ふりがな(全角ひらがな)", class: "mt-2" %>
 <%= f.text_field :kana_name, class:"form-control" %>
 
 <%= f.label :user_name, "ユーザー名", class: "mt-2" %>
