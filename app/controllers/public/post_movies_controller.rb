@@ -22,7 +22,8 @@ class Public::PostMoviesController < ApplicationController
          post_movies = PostMovie.where("title LIKE?", "#{params[:keyword]}")
          @post_movies = post_movies.page(params[:page]).per(10)
         else
-         render :index
+         redirect_to post_movies_path
+         flash[:notice] = "タイトルを正しく入力してください。"
         end
          
     end
@@ -74,11 +75,6 @@ class Public::PostMoviesController < ApplicationController
    
    def situation_params
       params.require(:situation).permit(:situation_id, :name)
-   end
-   
-   def search
-    binding.pry
-    @post_movies = PostMovie.search(params[:keyword])
    end
    
   

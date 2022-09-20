@@ -31,13 +31,9 @@
    
 
   <div class="d-flex align-content-start flex-wrap mt-3">
-    <% @post_movies.first(9).each do |post_movie| %>
-      <%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "col-md-4 text-center border border-secondary rounded-pill p-3 text-dark mb-3" %>
-    <% end %>
-  </div>
-
-  <div class="mt-5">
-    <%= paginate @post_movies %>
+     <% @post_movies.each do |post_movie| %>
+       <%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "col-md-4 text-center border border-secondary rounded-pill p-3 text-dark mb-3" %>
+     <% end %>
   </div>
   
 </div>
