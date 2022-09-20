@@ -1,38 +1,42 @@
 <div class="container">
- <table class="table col-md-10 mx-auto">
-            <thead>
-                <tr>
-                 <th>ユーザーID</th>
-                 <th>名前</th>
-                 <th>ユーザー名</th>
-                 <th>メールアドレス</th>
-                 <th>会員ステータス</th>
-                </tr>
-            </thead>
+    
+    <table class="table col-md-10 mx-auto">
+        <thead>
+            <tr>
+                <th>ユーザーID</th>
+                <th>名前</th>
+                <th>ユーザー名</th>
+                <th>メールアドレス</th>
+                <th>会員ステータス</th>
+            </tr>
+        </thead>
         
-            <tbody>
-                <% @users.each do |user| %>
-                <tr>
-                  <td><%= user.id %></td>
-                  <% if user.email == 'guest@example.com' %>
-                  <td><%= user.name %></td>
-                  <% else %>
-                  <td><u><%= link_to "#{user.name}", admin_user_path(user.id), class: "text" %></u></td>
-                  <% end %>
-                  <td><%= user.user_name %></td>
-                  <td><%= user.email %></td>
-                  <% if user.is_deleted %>
-                　<td><span class="text-muted">退会</span></td>
-                  <% else %>
-                　<td><span class="text-success">有効</span></td>
-                  <% end %>
-                </tr>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                  
+                <% if user.email == 'guest@example.com' %>
+                <td><%= user.name %></td>
+                <% else %>
+                <td><u><%= link_to "#{user.name}", admin_user_path(user.id), class: "text" %></u></td>
                 <% end %>
-            </tbody>
-        </table>
-        
+                  
+                <td><%= user.user_name %></td>
+                <td><%= user.email %></td>
+                  
+                <% if user.is_deleted %>
+                <td><span class="text-muted">退会</span></td>
+                <% else %>
+                <td><span class="text-success">有効</span></td>
+                <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="text-align-center">
+     <%= paginate @users %>
     </div>
     
-    <div class="container text-align-center">
-    <%= paginate @users %>
-    </div>
+</div>

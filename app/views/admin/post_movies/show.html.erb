@@ -1,76 +1,77 @@
 <div class="container">
-<div class="col-md-12">
-<div class="field row justify-content-center mt-3 mb-3">
-<h2>投稿内容詳細</h2>
-</div>
+ <div class="col-md-12">
+  <div class="field row justify-content-center mt-3 mb-3">
+   <h2>投稿内容詳細</h2>
+  </div>
 
-<div class="field row">
-<div class="col-md-6 mt-4">
-<table class="table table-bordered">
-    <tr>
-        <td>会員ID</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.user.id %></td>
-    </tr>
-    <tr>
-        <td>投稿日時</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
-    </tr>
-    <tr>
-        <td>名前</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.user.name %></td>
-    </tr>
-    <tr>
-        <td>ユーザー名</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.user.user_name %></td>
-    </tr>
-    <tr>
-        <td>タイトル</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.title %></td>
-    </tr>
-    <tr>
-        <td>シチュエーション</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.situation.name %></td>
-    </tr>
-    <tr>
-        <td>ストーリー</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.story %></td>
-    </tr>
-    <tr>
-        <td>どうやって観た？</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.site_i18n %></td>
-    </tr>
-    <tr>
-        <td>いいね数</td>
-        <td scope="col" style="width: 70%"><%= @post_movie.favorites.count %></td>
-    </tr>
-    
-</table>
-</div>
+  <div class="field row">
+      
+   <div class="col-md-6 mt-4">
+    <table class="table table-bordered">
+     <tr>
+         <td>会員ID</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.user.id %></td>
+     </tr>
+     <tr>
+         <td>投稿日時</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+     </tr>
+     <tr>
+         <td>名前</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.user.name %></td>
+     </tr>
+     <tr>
+         <td>ユーザー名</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.user.user_name %></td>
+     </tr>
+     <tr>
+         <td>タイトル</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.title %></td>
+     </tr>
+     <tr>
+         <td>シチュエーション</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.situation.name %></td>
+     </tr>
+     <tr>
+         <td>ストーリー</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.story %></td>
+     </tr>
+     <tr>
+         <td>どうやって観た？</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.site_i18n %></td>
+     </tr>
+     <tr>
+         <td>いいね数</td>
+         <td scope="col" style="width: 70%"><%= @post_movie.favorites.count %></td>
+     </tr>
+    </table>
+   </div>
 
-<div class="col-md-6">
-<div class="box26">
-<span class="box-title">レビュー</span>
-<p><%= @post_movie.review %></p>
-</div>
-</div>
-</div>
+   <div class="col-md-6">
+    <div class="box26">
+     <span class="box-title">レビュー</span>
+     <p><%= @post_movie.review %></p>
+    </div>
+   </div>
+ 
+ </div>
 
 
-<div class="col-md-12 mt-3">
-<h2>コメント</h2>
-<div class="overflow-auto">
-<% @post_comments.each do |post_comment| %>
-<table class="table">
-    <tbody>
+ <div class="col-md-12 mt-3">
+   <h2>コメント</h2>
+  <div class="overflow-auto">
+  <% @post_comments.each do |post_comment| %>
+   <table class="table">
+     <tbody>
         <tr><td>
             <h4>・<%= post_comment.user.user_name %></h4>
             <%= post_comment.comment %>
         </td></tr>
-    </tbody>
-</table>
-<% end %>
-</div>
-</div>
+     </tbody>
+   </table>
+  <% end %>
+  </div>
+ </div>
 
-</div>
+ </div>
 </div>

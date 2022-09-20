@@ -1,7 +1,8 @@
-
 <div class="container">
-<div class="col-md-12">
-<h2 class="mt-5 text-center">ログイン</h2>
+    
+ <div class="col-md-12">
+     
+   <h2 class="mt-5 text-center">ログイン</h2>
 
    <%= form_with model: @user, url: user_session_path do |f| %>
    <%= render "public/shared/error_messages", resource: resource %>
@@ -11,18 +12,19 @@
     <%= f.email_field :email, class: 'col-md-5', autofocus: true, required: true, autocomplete: "email", placeholder: "sample@example.com" %>
    </div>
 
-  <div class="field row justify-content-center py-3">
+   <div class="field row justify-content-center py-3">
     <%= f.label :password, "パスワード", class: 'col-md-3' %><br />
     <%= f.password_field :password, class: 'col-md-5', required: true, autocomplete: "current-password" %>
    </div>
 
-  <div class="actions row justify-content-center py-3">
+   <div class="actions row justify-content-center py-3">
     <%= f.submit "ログイン", class: 'btn btn-outline-dark mt-3' %>
-  </div>
-  <% end %>
-    
+   </div>
+   
+   <% end %>
 
   <%= render "public/shared/links" %>
   
-</div>
+ </div>
+ 
 </div>

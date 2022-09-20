@@ -1,5 +1,5 @@
   <div class="favorite-btn btn-border">
-  <% if post_movie.favorited_by?(current_user) %>
+   <% if post_movie.favorited_by?(current_user) %>
     <span>
       <%= link_to post_movie_favorites_path(post_movie), method: :delete, remote: true do %>
         ♥<%= post_movie.favorites.count %> いいね
@@ -11,5 +11,5 @@
         ♡<%= post_movie.favorites.count %> いいね
       <% end %>
     </span>
-  <% end %>
+   <% end %>
   </div>

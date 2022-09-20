@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
    before_action :authenticate_user!
-   before_action :ensure_normal_user, only: [:update]
+   before_action :ensure_normal_user, only: [:update, :destroy]
   
   def show
       @user = User.find(params[:id])
@@ -14,13 +14,13 @@ class Public::UsersController < ApplicationController
   def update
       @user = current_user
     
-    if  @user.update(user_params)
-        redirect_to edit_user_path
-        flash[:notice] = "会員情報が更新されました。"
-    else
-        render :edit
-        flash[:notice] = "必要項目を入力してください。"
-    end
+      if  @user.update(user_params)
+          redirect_to edit_user_path
+          flash[:notice] = "会員情報が更新されました。"
+      else
+          render :edit
+          flash[:notice] = "必要項目を入力してください。"
+      end
   end
   
   def unsubscribe
@@ -28,11 +28,11 @@ class Public::UsersController < ApplicationController
   end
 
   def withdraw
-    @user = current_user
-    @user.update(is_deleted: true)
-    reset_session
-    redirect_to root_path
-    flash[:notice]="ご利用いただき、ありがとうございました。"
+      @user = current_user
+      @user.update(is_deleted: true)
+      reset_session
+      redirect_to root_path
+      flash[:notice]="ご利用いただき、ありがとうございました。"
   end
     
   def followings
@@ -48,14 +48,14 @@ class Public::UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:profile_image, :name, :kana_name, :user_name, :email, :is_deleted)
+      params.require(:user).permit(:profile_image, :name, :kana_name, :user_name, :email, :is_deleted)
   end
   
   def ensure_normal_user
-    if params[:user][:email] == 'guest@example.com'
-       redirect_to root_path
-       flash[:notice]="ゲストユーザーは更新・削除できません。"
-    end
+      if params[:user][:email] == 'guest@example.com'
+         redirect_to root_path
+         flash[:notice]="ゲストユーザーは更新・削除できません。"
+      end
   end
   
 end

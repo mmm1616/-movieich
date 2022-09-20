@@ -1,22 +1,25 @@
 <div class="container">
-<div class="col-md-12">
-<div class="field row justify-content-center mt-5">
-<%= form_with model: @situation, url: admin_situations_path, method: :post do |f| %>
-<%= f.label :name, "シチュエーション入力欄", class: "mr-3" %>
-<%= f.text_field :name %>
-<%= f.submit '追加する', class: 'btn btn-outline-primary ml-3 mb-2' %>
-<% end %>
-</div>
+ 
+ <div class="col-md-12">
+  
+  <div class="field row justify-content-center mt-5">
+   <%= form_with model: @situation, url: admin_situations_path, method: :post do |f| %>
+    <%= f.label :name, "シチュエーション入力欄", class: "mr-3" %>
+    <%= f.text_field :name %>
+    <%= f.submit '追加する', class: 'btn btn-outline-primary ml-3 mb-2' %>
+   <% end %>
+  </div>
 
+  <h4 class="mt-3 mb-3">シチュエーション一覧</h4>
+  
+  <% @situations.each do |situation| %>
+   <ul class="col-md-5 flex-wrap">
+    <li>
+     <%= situation.name %><%= link_to "編集する", edit_admin_situation_path(situation.id), class:"btn btn-outline-success ml-3" %>
+    </li>
+   </ul>
+  <% end %>
+ 
+ </div>
 
-
-<h4 class="mt-3 mb-3">シチュエーション一覧</h4>
-<% @situations.each do |situation| %>
-<ul class="col-md-5 flex-wrap">
- <li>
- <%= situation.name %><%= link_to "編集する", edit_admin_situation_path(situation.id), class:"btn btn-outline-success ml-3" %>
- </li>
-</ul>
-<% end %>
-</div>
 </div>
