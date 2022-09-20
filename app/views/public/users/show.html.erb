@@ -39,9 +39,9 @@
 </div>
 
 
-<div class="col-md-10 d-flex flex-wrap mt-3">
+<div class="col-md-12 d-flex flex-wrap mt-3">
 <% @user.post_movies.each do |post_movie| %>
-<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "btn btn-outline-dark mb-3 mx-auto"  %>
+<%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "btn btn-outline-dark mb-1 mx-auto"  %>
 <% end %>
 </div>
 
