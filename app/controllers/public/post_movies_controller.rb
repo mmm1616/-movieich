@@ -17,6 +17,16 @@ class Public::PostMoviesController < ApplicationController
         @situation = Situation.find(params[:situation_id])
     end
     
+    def search
+        if params[:keyword] != ""   
+         post_movies = PostMovie.where("title LIKE?", "#{params[:keyword]}")
+         @post_movies = post_movies.page(params[:page]).per(10)
+        else
+         render :index
+        end
+         
+    end
+    
    end
    
    def show
@@ -66,5 +76,10 @@ class Public::PostMoviesController < ApplicationController
       params.require(:situation).permit(:situation_id, :name)
    end
    
+   def search
+    binding.pry
+    @post_movies = PostMovie.search(params[:keyword])
+   end
    
+  
 end

@@ -16,4 +16,10 @@ class PostMovie < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
   
+  # def self.search
+  #   if search != ""
+  #     PostMovie.where('title LIKE(?)', "%#{search}%")
+  #   end
+  # end
+  
 end

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   
   scope module: 'public' do
    root to: "post_movies#index"
+   get 'search', to: "post_movies#search"
    resources :post_movies do
        resources :post_comments, only: [:create]
        resource :favorites, only: [:create, :destroy]
