@@ -8,13 +8,11 @@
    <%= render "public/shared/error_messages", resource: resource %>
    
    <div class="field row justify-content-center py-3">
-    <%= f.label :email, "メールアドレス", class: 'col-md-3' %><br />
-    <%= f.email_field :email, class: 'col-md-5', autofocus: true, required: true, autocomplete: "email", placeholder: "sample@example.com" %>
+    <%= f.email_field :email, class: 'col-md-5', autofocus: true, required: true, autocomplete: "email", placeholder: "メールアドレス：sample@example.com" %>
    </div>
 
    <div class="field row justify-content-center py-3">
-    <%= f.label :password, "パスワード", class: 'col-md-3' %><br />
-    <%= f.password_field :password, class: 'col-md-5', required: true, autocomplete: "current-password" %>
+    <%= f.password_field :password, class: 'col-md-5', required: true, autocomplete: "current-password", placeholder: "パスワード" %>
    </div>
 
    <div class="actions row justify-content-center py-3">
