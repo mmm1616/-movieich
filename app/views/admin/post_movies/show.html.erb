@@ -50,7 +50,7 @@
    <div class="col-md-6">
     <div class="box26">
      <span class="box-title">レビュー</span>
-     <p><%= @post_movie.review %></p>
+     <span class="d-flex align-items-center"><%= @post_movie.review %></span>
     </div>
    </div>
  
@@ -59,7 +59,7 @@
 
  <div class="col-md-12 mt-3">
    <h2>コメント</h2>
-  <div class="overflow-auto">
+  <div class="overflow-auto" style="height:200px;">
   <% @post_comments.each do |post_comment| %>
    <table class="table">
      <tbody>
