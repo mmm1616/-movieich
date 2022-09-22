@@ -13,7 +13,7 @@
   
  <div class="col-md-12">
    
-  <h2 class="mt-5 text-center">ログイン</h2>
+  <h2 class="mt-5 text-center">新規登録</h2>
 
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' do |f| %>
   
@@ -28,7 +28,7 @@
   </div>
   
   <div class="field row justify-content-center py-3">
-    <%= f.label :user_name, "ユーザー名", class: "col-md-3" %>
+    <%= f.label :user_name, "ユーザー名(8文字以内)", class: "col-md-3" %>
     <%= f.text_field :user_name, class: "col-md-3 form-control",autofocus: true, required: true %>
   </div>
   
