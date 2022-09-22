@@ -26,7 +26,7 @@ Which movies, today?<br>
 ・周りにおすすめの映画はないか尋ねられたとき<br>
 
 ## 設計書
-![er](/assets/images/er.png)
+![er](images/er.png)
 
 ## 実装機能リスト
 https://docs.google.com/spreadsheets/d/1OiJFkXsnfXO9HSH0VNDpHuECVqNd2LZ_T4OUFOMfZQg/edit?usp=sharing
