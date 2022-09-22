@@ -39,7 +39,7 @@ https://docs.google.com/spreadsheets/d/1OiJFkXsnfXO9HSH0VNDpHuECVqNd2LZ_T4OUFOMf
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です。
+- イラストAC(https://www.ac-illust.com/)
 
 ## 利用規約
 - 画像はユーザーのプロフィール画像にのみ使用します。
