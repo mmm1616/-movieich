@@ -1,5 +1,7 @@
 # movieich
 
+![toppage](/app/assets/images/toppage.png)
+
 ## サイト概要
 ### サイトテーマ
 Which movies, today?<br>
