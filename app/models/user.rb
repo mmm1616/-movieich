@@ -18,6 +18,7 @@ class User < ApplicationRecord
   
   validates :kana_name, uniqueness: true, format: { with: /\A[ぁ-ん]+/ , message: "は全角ひらがなのみが使用できます" }
   validates :user_name, presence: true, uniqueness: true, length: {maximum: 8}
+  validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
