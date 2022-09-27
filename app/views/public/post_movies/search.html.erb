@@ -1,6 +1,6 @@
 <div class="container">
     
-  <div class="col-md-12">
+  <div class="col-md-12 col-sm-12">
       
    <div class="text-center mt-3">
      <h1 class="title">Movieich</h1>
@@ -15,8 +15,8 @@
    
    <div class="field row justify-content-center mt-3 ml-5">
     <%= form_with url: post_movies_path, method: :get do |f| %>
-      <%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"}, {class: 'form-select'} %>
-      <%= f.submit '選択', class: "btn btn-outline-info ml-3" %>
+      <%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"}, {class: 'col-xs-12 form-select'} %>
+      <%= f.submit '選択', class: "col-xs-12 btn btn-outline-info ml-3" %>
     <% end %>
     </div>
     
