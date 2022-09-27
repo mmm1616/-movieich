@@ -45,7 +45,7 @@ situations = [
    {name: '思いっきり泣きたい'},
    {name: 'ハラハラドキドキしたい'},
    {name: '名作を観たい'},
-      {name: 'みんなでワイワイしたい'},
+   {name: 'みんなでワイワイしたい'},
 ]
 
 situations.each do |situation|
