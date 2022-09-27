@@ -31,7 +31,7 @@
   <% if @user == current_user %>
   
         <%= link_to edit_user_path(@user) do %>
-            <button class ="btn btn-outline-secondary">マイプロフィール</button>
+            <button class ="btn btn-outline-info">マイプロフィール</button>
         <% end %>
         
   <% else %>
@@ -55,7 +55,7 @@
  </div>
 <% end %>
 
- <div class="col-md-12 col-sm-12 d-flex flex-wrap mt-3">
+ <div class="col-md-12 col-sm-6 d-flex flex-wrap mt-3">
   <% @user.post_movies.each do |post_movie| %>
    <%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "btn btn-outline-dark mb-1 mx-auto"  %>
   <% end %>
