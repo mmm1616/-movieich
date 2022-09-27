@@ -14,7 +14,7 @@
 
 <div class="container">
   
- <div class="col-10 mx-auto mt-5">
+ <div class="col-md-10 mx-auto mt-5">
 
   <div class="form-group row">
    <%= f.label :title, "映画タイトル", class: "col-md-3 col-form-label" %>
@@ -22,8 +22,8 @@
   </div>
 
   <div class="form-group row">
-   <%= f.label :situation_id, "シチュエーション", class: "col-3 col-form-label" %>
-   <div class="col-9 pt-1">
+   <%= f.label :situation_id, "シチュエーション", class: "col-md-3 col-form-label" %>
+   <div class="col-md-9 pl-1 pt-1">
     <%= f.collection_select :situation_id, Situation.all, :id, :name, :prompt => "-- 選択して下さい --" %>
    </div>
   </div>
@@ -34,14 +34,14 @@
   </div>
 
   <div class="form-group row">
-   <%= f.label :site, "どうやって観た？", class: "col-3 col-form-label" %>
-   <div class="col-9 pt-1">
+   <%= f.label :site, "どうやって観た？", class: "col-md-3 col-form-label" %>
+   <div class="col-md-9 pl-1 pt-1">
     <%= f.select :site, PostMovie.sites_i18n.keys.map{|k| [I18n.t("enums.post_movie.site.#{k}"), k]} %>
    </div>
   </div>
 
   <div class="form-group row">
-   <%= f.label :review, "レビュー(400文字以内)", class: "col-3 col-form-label" %>
+   <%= f.label :review, "レビュー(400文字以内)", class: "col-md-3 col-form-label" %>
    <%= f.text_area :review, class: "col-md-9 pt-1 form-control" %>
   </div>
 
