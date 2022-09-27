@@ -31,12 +31,8 @@
    
 
   <div class="d-flex align-content-start flex-wrap mt-3">
-     <% if @post_movies == nil %>
-       <p>対象の映画がありません。</p>
-     <% else %>
-       <% @post_movies.each do |post_movie| %>
-         <%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "col-md-4 text-center border border-secondary rounded-pill p-3 text-dark mb-3" %>
-       <% end %>
+   　<% @post_movies.each do |post_movie| %>
+       <%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "col-md-4 text-center border border-secondary rounded-pill p-3 text-dark mb-3" %>
      <% end %>
   </div>
   

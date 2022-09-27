@@ -18,6 +18,7 @@ class Public::PostMoviesController < ApplicationController
     end
     
     def search
+        
         if params[:keyword] != ""   
          post_movies = PostMovie.where("title LIKE?", "%#{params[:keyword]}%")
          @post_movies = post_movies.page(params[:page]).per(10)
