@@ -1,5 +1,6 @@
 class Public::PostMoviesController < ApplicationController
  before_action :authenticate_user!, except: [:index, :search] 
+ before_action :correct_user, only: [:edit, :update]
 
    def new
         @post_movie = PostMovie.new
@@ -73,6 +74,13 @@ class Public::PostMoviesController < ApplicationController
    
    def situation_params
       params.require(:situation).permit(:situation_id, :name)
+   end
+   
+   def correct_user
+    post_movie = PostMovie.find(params[:id])
+    user = post_movie.user
+    redirect_to post_movies_path unless user == current_user
+    flash[:notice] = "編集はできません。"
    end
    
   
