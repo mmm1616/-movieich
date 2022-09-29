@@ -22,7 +22,7 @@ Rails.application.routes.draw do
    root to: "post_movies#index"
    get 'search', to: "post_movies#search"
    resources :post_movies do
-       resources :post_comments, only: [:create]
+       resources :post_comments, only: [:create, :destroy]
        resource :favorites, only: [:create, :destroy]
    end
   end

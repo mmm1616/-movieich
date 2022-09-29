@@ -8,6 +8,11 @@ class Public::PostCommentsController < ApplicationController
      redirect_to post_movie_path(post_movie.id)
  end
  
+ def destroy
+     PostComment.find_by(id: params[:id], post_movie_id: params[:post_movie_id]).destroy
+     redirect_to post_movie_path(params[:post_movie_id])
+ end
+ 
  private
  
   def post_comment_params
