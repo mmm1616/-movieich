@@ -9,7 +9,8 @@ class Public::PostCommentsController < ApplicationController
  end
  
  def destroy
-     PostComment.find_by(id: params[:id], post_movie_id: params[:post_movie_id]).destroy
+     @post_comment = PostComment.find_by(id: params[:id], post_movie_id: params[:post_movie_id]).destroy
+     @post_comment.destroy
      redirect_to post_movie_path(params[:post_movie_id])
  end
  
