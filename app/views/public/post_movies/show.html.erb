@@ -69,7 +69,7 @@
   <h2>コメントを書こう(150文字以内)</h2>
   <div class="form-group">
    <%= form_with model:  [@post_movie, @post_comment] do |f| %>
-    <%= f.text_area :comment, class:"form-control" %>
+    <%= f.text_area :comment, class: "form-control", required: true %>
     <%= f.submit 'コメントする', class: 'btn btn-outline-dark mt-2 d-flex' %>
    <% end %>
   </div>
