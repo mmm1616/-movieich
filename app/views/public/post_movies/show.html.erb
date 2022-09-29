@@ -56,8 +56,8 @@
 　　　
 　　　<div class="chatting">
 　　　 <div class="says">
-　　　　<p class="font-weight-bold"><%= post_comment.user.user_name %> : </p>
-　　　　<p><%= post_comment.comment %><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
+　　　　<p class="font-weight-bold"><%= post_comment.user.user_name %>(<%= post_comment.created_at.strftime('%Y/%m/%d') %>) : </p>
+　　　　<p><%= post_comment.comment %></p>
 　　　　<% if post_comment.user == current_user %>
 　　　　<p><%= link_to "削除", post_movie_post_comment_path(post_comment.post_movie_id, post_comment.id), method: :delete, class: 'btn btn-sm-outline-dark' %></p>
 　　　　<% end %>
