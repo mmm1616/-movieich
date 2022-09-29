@@ -1,5 +1,5 @@
 class Public::PostMoviesController < ApplicationController
- before_action :authenticate_user!, except: [:index] 
+ before_action :authenticate_user!, except: [:index, :search] 
 
    def new
         @post_movie = PostMovie.new
