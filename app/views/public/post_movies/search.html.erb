@@ -13,24 +13,22 @@
     <%= image_tag 'thinking3.jpg', size: "150x100" %>
    </div>
    
-   <div class="field row justify-content-center mt-3 ml-5">
+    <div class="field row justify-content-sm-center mt-3">
     <%= form_with url: post_movies_path, method: :get do |f| %>
-      <%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"}, {class: 'col-xs-12 form-select', required: true} %>
-      <%= f.submit '選択', class: "col-xs-12 btn btn-outline-info ml-3" %>
+      <%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"},{class: 'form-select', required: true} %>
+      <%= f.submit '選択', class: "mb-1 btn btn-outline-info" %>
     <% end %>
     </div>
     
-    <div class="field row justify-content-center mt-3 ml-5">
+    <div class="field row justify-content-sm-center mt-3">
      <%= form_with url: search_path, method: :get do |f| %>
-      <%= f.text_field :keyword, placeholder: "映画タイトル入れてね", required: true%>
-      <%= f.submit "検索", class: "btn btn-outline-info ml-3" %>
+      <%= f.text_field :keyword, placeholder: "映画タイトル入れてね", required: true %>
+      <%= f.submit "検索", class: "mb-1 btn btn-outline-info" %>
      <% end %>
     </div>
    
    <p class="text-center mt-2 mb-2">※詳細をみる際は、ログインor新規登録が必要です。</p>
    
-   <p><% @post_movies.count %>件見つかりました。</p>
-
   <div class="d-flex align-content-start flex-wrap mt-3">
    　<% @post_movies.each do |post_movie| %>
        <%= link_to "#{post_movie.title}", post_movie_path(post_movie.id), class: "col-md-4 text-center border border-secondary rounded-pill p-3 text-dark mb-3" %>
