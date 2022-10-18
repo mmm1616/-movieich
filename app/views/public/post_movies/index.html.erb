@@ -13,11 +13,11 @@
     <%= image_tag 'thinking3.jpg', size: "150x100" %>
    </div>
    
-   <div class="field row justify-content-sm-center mt-3">
-    <%= form_with url: post_movies_path, method: :get , class:'form-inline' do |f| %>
-      <%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"},{class: 'form-select', required: true} %>
-      <%= f.submit '選択', class: "mb-1 btn btn-outline-info" %>
-    <% end %>
+    <div class="field row justify-content-sm-center mt-3">
+     <%= form_with url: post_movies_path, method: :get , class:'form-inline' do |f| %>
+       <%= f.collection_select :situation_id, Situation.all, :id, :name, {:prompt => "-- 今日はどんな気分かな --"},{class: 'form-select', required: true} %>
+       <%= f.submit '選択', class: "mb-1 ml-1 btn btn-outline-info" %>
+     <% end %>
     </div>
 
     <div class="field row justify-content-sm-center mt-3">
