@@ -36,6 +36,7 @@
 }
 
 .favorite-btn {
+  width: 40%;
   font-size: 10px;
   font-weight: 400;
   line-height: 0.5;
