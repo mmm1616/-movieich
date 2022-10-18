@@ -36,7 +36,7 @@
 }
 
 .favorite-btn {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 0.5;
   position: relative;
@@ -59,13 +59,13 @@
 
 .btn-border {
   margin-bottom: 12px;
-  padding: 4px;
+  padding: 5px;
 
   -webkit-transition: all 0.3s;
 
   transition: all 0.3s;
 
-  border: 2px solid #000;
+  border: 1px solid #000;
   background-image: -webkit-repeating-linear-gradient(
     135deg,
     #000,
