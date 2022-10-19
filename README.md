@@ -34,7 +34,7 @@ Which movies, today?<br>
 https://docs.google.com/spreadsheets/d/1OiJFkXsnfXO9HSH0VNDpHuECVqNd2LZ_T4OUFOMfZQg/edit?usp=sharing
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux(Amazon Linux 2)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
