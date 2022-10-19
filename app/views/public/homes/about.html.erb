@@ -18,8 +18,18 @@
   <p class="mt-2">テーマで映画を探してみよう</p>
 
 
-  <%= link_to "映画を探そう", root_path, class: "mt-2 btn-flat-dashed-filled" %>
-
- </div>
+  <%= link_to "映画を探そう", root_path, class: "mt-3 btn-flat-dashed-filled" %>
+  
+  <p class="ml-1 mt-5">会員登録 or ログインをすると、</p>
+  <p>映画の詳細が読めたり</p>
+  <p>みんなと意見をシェアできるよ</p>
+  <p>↓↓レビューサイト例↓↓</p>
+  
+  <div>
+  <%= image_tag 'introduction.jpg', size: "300x400" %>
+  </div>
+  
+  <%= link_to "ログイン", new_user_session_path, class: "mt-3 btn-flat-dashed-filled" %>
+  <%= link_to "会員登録", new_user_registration_path, class: "mt-3 mb-3 btn-flat-dashed-filled" %> </div>
  
 </div>
